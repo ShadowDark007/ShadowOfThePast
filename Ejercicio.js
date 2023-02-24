@@ -6,7 +6,6 @@ const fs = require('fs');
 const host = "localhost"
 const port = 8000
 
-//la base de datos tiene que contener desde un principio [], pero ya se quedan guardados los datos sin reiniciarsen
 
 const leerJson=fs.readFileSync('data.json','utf-8')
 let productos=JSON.parse(leerJson);
@@ -42,8 +41,6 @@ app.post('/Producto',(req,res)=>{
     console.log('agregado')
 })
 
-//appendFileSync agregar mas contenido sin eliminar el ya existente
-
 //mostrar uno
 app.get('/:id',(req,res)=>{
     const id= req.params.id
@@ -52,7 +49,7 @@ app.get('/:id',(req,res)=>{
     res.send(busca)
 })
 
-//eliminar
+//eliminar productos
 app.delete('/Producto/:id',(req,res)=>{
     const id= req.params.id
 
